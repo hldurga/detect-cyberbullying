@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Graph - Cyberbullying Detection{% endblock %}
+
+{% block content %}
+
+    <h1>Data Distribution: Toxic vs. Non-Toxic</h1></br>
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='toxic_distribution.png') }}" alt="Toxic vs Non-Toxic Distribution" class="img-fluid rounded">
+        <p>Data Distribution: Toxic vs. Non-Toxic</p>
+    </div>
+</br>
+    <h1>Algorithm Performance Graph</h1>
+
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='classification_summary.png') }}" alt="Algorithm Performance" class="img-fluid" style="max-width: 90%;">
+        <p>Algorithm Performance Graph</p>
+    </div>
+</br>
+<h1>Training and Prediction time of Algorithms</h1>
+
+<div class="text-center">
+    <img src="{{ url_for('static', filename='training_and_prediction.png') }}" alt="Algorithm Performance" class="img-fluid" style="max-width: 90%;">
+    <p>Training and Prediction time of Algorithms</p>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+    {% extends "base.html" %}
+
+
+    {% block title %}Home - Cyberbullying Detection{% endblock %}
+
+    {% block content %}
+    <body>
+
+        <div class="container-fluid">
+            <div class="static-title" style="font-weight: bold; color: #ff5733; font-size: 24px; text-align: center; margin-bottom: 20px;">
+                Cyberbullying Detection In Social Network Using ML
+            </div>
+        
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-7 col-md-7 col-sm-12 form-container">
+                    <form method="POST">
+                        <div class="form-group">
+                            <textarea name="text" class="form-control" rows="6" placeholder="Enter text to analyze..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block btn-analyze">Detect</button>
+                    </form>
+        
+                    <!-- Show result ONLY after prediction -->
+                    {% if prediction is not none %}
+                    <div class="result {% if prediction == 1 %}bullying{% else %}non-bullying{% endif %}">
+                        {% if prediction == 1 %}
+                            🚨 Bullying Detected!
+                        {% else %}
+                            ✅ No Bullying Detected!
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+        
+                <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                    <img src="{{ url_for('static', filename='cyberbullying.jpg') }}" 
+                        alt="Cyberbullying Detection" 
+                        class="img-fluid rounded" 
+                        style="max-width: 90%; height: auto;">
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    {% endblock %}
+
